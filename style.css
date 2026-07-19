@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+}
+/* Навігація */
+.navbar{
+    background:#0b3d2e;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 10px rgba(0,0,0,.3);
+}
+
+.logo{
+    color:#fff;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo img{
+    height: 70px;
+
+}
+
+.menu{
+    display:flex;
+    gap:20px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    background:#145c44;
+}
+
+.menu a:active{
+    background:#1d7a59;
+}
