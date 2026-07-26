@@ -3,7 +3,7 @@
 }
 /* Навігація */
 .navbar{
-    background:#0b3d2e;
+    background:#000000;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -22,7 +22,7 @@
 
 .logo img{
     height: 70px;
-
+filter: invert(1);
 }
 
 .menu{
