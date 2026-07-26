@@ -21,19 +21,62 @@
     </nav>
 
     <section class="hero">
-    <div class="hero-content">
-        <h1> GameZone</h1>
-        <p>
-            Купуй найкращі ігри за вигідними цінами.
-            Новинки, знижки та миттєва доставка ключів.
-        </p>
+        <div class="hero-content">
+            <h1> GameZone</h1>
+            <p>
+                Купуй найкращі ігри за вигідними цінами.
+                Новинки, знижки та миттєва доставка ключів.
+            </p>
 
-        <div class="hero-buttons">
-            <a href="#games" class="btn"> Каталог</a>
-            <a href="#contacts" class="btn btn-outline"> Контакти</a>
+            <div class="hero-buttons">
+                <a href="#games" class="btn"> Каталог</a>
+                <a href="#contacts" class="btn btn-outline"> Контакти</a>
+            </div>
+        </div>
+    </section>
+    <div class="populars-games ">
+        <h2>популярні ігри</h2>
+        <div class="gblock">
+            <div class="item">
+                <p class="price">499грн</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaMsGcYpIevp_0Wc1Mc_4QqlnmR1uPguvsUDpjDBuamyK94ImfistsBNN2Mjg1C2DVOUoj8zNNPmm92uYXKHzNPFBsPu33Hpl_FPYVj5Q&s=10"
+                    alt="">
+                <button class="add-cart" data-name="Minecraft" data-price="499"> Додати в кошик</button>
+            </div>
+            <div class="item">
+                <p class="price">999грн</p>
+                <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/c/c8/GTAV_Official_Cover_Art.jpg/330px-GTAV_Official_Cover_Art.jpg"
+                    alt="">
+                <button class="add-cart" data-name="Gta 5" data-price="999"> Додати в кошик</button>
+            </div>
+            <div class="item">
+                <p class="price">799грн</p>
+                <img src="https://upload.wikimedia.org/wikipedia/ru/5/58/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Forza_Horizon_5.jpg"
+                    alt="">
+                <button class="add-cart" data-name="Forza Horizon 5" data-price="799"> Додати в кошик</button>
+            </div>
+            <div class="item">
+                <p class="price">999грн</p>
+                <img src="https://upload.wikimedia.org/wikipedia/ru/b/bb/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B9_%D0%B8%D0%B3%D1%80%D1%8B_Cyberpunk_2077.jpg"
+                    alt="">
+                <button class="add-cart" data-name="Cyberpunk 2077" data-price="999"> Додати в кошик</button>
+
+            </div>
         </div>
     </div>
-</section>
+    <div class="cart">
+        <h2>🛒 Кошик</h2>
+
+        <ul id="cart-items"></ul>
+
+        <h3>Разом: <span id="total">0</span> грн</h3>
+
+        <button id="clear-cart">Очистити кошик</button>
+    </div>
+    <footer>
+    </footer>
+
+    <script src="./mane.js"></script>
 </body>
 
 </html>
