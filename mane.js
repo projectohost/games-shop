@@ -1,44 +1,103 @@
 
+// Масив товарів
 const cart = [];
-const list = document.getElementById("cart-items");
-const total = document.getElementById("total");
 
-function updateCart(){
+// Елементи
+const cartItems = document.getElementById("cartItems");
+const totalPrice = document.getElementById("totalPrice");
 
-    list.innerHTML = "";
+const cartPanel = document.querySelector(".cart");
+const overlay = document.querySelector(".overlay");
+const cartBtn = document.querySelector(".cart-btn");
+const closeBtn = document.querySelector(".close-cart");
+const clearBtn = document.querySelector(".clear-cart");
 
-    let sum = 0;
+// =========================
+// Відкриття / закриття кошика
+// =========================
 
-    cart.forEach((game,index)=>{
+cartBtn.addEventListener("click", () => {
+    cartPanel.classList.add("active");
+    overlay.classList.add("active");
+});
 
-        sum += game.price;
+closeBtn.addEventListener("click", () => {
+    cartPanel.classList.remove("active");
+    overlay.classList.remove("active");
+});
 
-        const li = document.createElement("li");
+overlay.addEventListener("click", () => {
+    cartPanel.classList.remove("active");
+    overlay.classList.remove("active");
+});
 
-        li.innerHTML = `
-            ${game.name} - ${game.price} грн
-            <button onclick="removeItem(${index})">✖</button>
+// =========================
+// Оновлення кошика
+// =========================
+
+function updateCart() {
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = "<p>Кошик порожній</p>";
+        totalPrice.textContent = "0 грн";
+        return;
+    }
+
+    cart.forEach((game, index) => {
+
+        total += game.price;
+
+        const item = document.createElement("div");
+        item.className = "cart-item";
+
+        item.innerHTML = `
+            <div class="cart-info">
+                <h4>${game.name}</h4>
+                <p>${game.price} грн</p>
+            </div>
+
+            <button class="remove" data-index="${index}">✖</button>
         `;
 
-        list.appendChild(li);
+        cartItems.appendChild(item);
 
     });
 
-    total.textContent = sum;
+    totalPrice.textContent = total + " грн";
+
+    document.querySelectorAll(".remove").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const index = button.dataset.index;
+
+            cart.splice(index, 1);
+
+            updateCart();
+
+        });
+
+    });
+
 }
 
-function removeItem(index){
-    cart.splice(index,1);
-    updateCart();
-}
+// =========================
+// Додавання товару
+// =========================
 
-document.querySelectorAll(".add-cart").forEach(button=>{
+document.querySelectorAll(".add-cart").forEach(button => {
 
-    button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
         cart.push({
-            name:button.dataset.name,
-            price:Number(button.dataset.price)
+
+            name: button.dataset.name,
+            price: Number(button.dataset.price)
+
         });
 
         updateCart();
@@ -47,9 +106,17 @@ document.querySelectorAll(".add-cart").forEach(button=>{
 
 });
 
-document.getElementById("clear-cart").addEventListener("click",()=>{
+// =========================
+// Очистити кошик
+// =========================
+
+clearBtn.addEventListener("click", () => {
 
     cart.length = 0;
+
     updateCart();
 
 });
+
+// Показати порожній кошик при запуску
+updateCart();
